@@ -1,2 +1,7 @@
 div {
-  background-color: skyblue; }
+  background-color: skyblue;
+  background-image: url("../images/sunny.jpg");
+  background-repeat: no-repeat; }
+
+p {
+  background-color: snow; }
