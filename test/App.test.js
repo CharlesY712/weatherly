@@ -14,7 +14,7 @@ describe('App', () => {
     expect(wrapper).toBeDefined();
   });
 
-  it('Should initially have default states of null for cleanApiData, location, and no apiData error', () => {
+  it('should have default states of null for cleanApiData, location, error', () => {
     expect(wrapper.state()).toEqual(
       {
         cleanApiData: null,
@@ -23,69 +23,64 @@ describe('App', () => {
       });
   });
 
-  // Rendering - If there is an error
-  it('Should render the Search component if there is an error', () => {
+  it('should render the Search component if there is an error', () => {
     wrapper.setState({ error: true });
+
     expect(wrapper.find('Search').length).toEqual(1);
   });
 
-  it('Should render the error message if there is an error', () => {
+  it('should render the error message if there is an error', () => {
     wrapper.setState({ error: true });
+
     expect(wrapper.find('p').text()).toEqual('Please insert a recognized location');
   });
 
-  it('Should render the CurrentWeather, SevenHourForecast, and TenDayForecast components if there is an error and there is cleanApiData', () => {
-    wrapper.setState({ error: true });
+  it('should render the CurrentWeather, SevenHourForecast, and TenDayForecast components if there is cleanApiData and an error', () => {
     wrapper.setState({ cleanApiData: true });
+    wrapper.setState({ error: true });
 
     expect(wrapper.find('CurrentWeather').length).toEqual(1);
     expect(wrapper.find('SevenHourForecast').length).toEqual(1);
     expect(wrapper.find('TenDayForecast').length).toEqual(1);
   });
 
-  // Rendering - If there is no location set in storage
-  it('Should render the Welcome component if there is no location', () => {
+  it.only('should render the Welcome component if there is no location and no error', () => {
+    wrapper.setState({ city: localStorage.location });
+    wrapper.setState({ error: false });
+
     expect(wrapper.find('Welcome').length).toEqual(1);
   });
 
-  it('Should render the Search component if there is no location', () => {
+  it('should render the Search component if there is no location and no error', () => {
+    wrapper.setState({ city: localStorage.location });
+    wrapper.setState({ error: false });
+
     expect(wrapper.find('Search').length).toEqual(1);
   });
 
-  it('Should not render the CurrentWeather, SevenHourForecast, and TenDayForecast components if there is no location', () => {
+  it('should not render the CurrentWeather, SevenHourForecast, and TenDayForecast components if there is no location and no error', () => {
+    wrapper.setState({ city: localStorage.location });
+    wrapper.setState({ error: false });
+
     expect(wrapper.find('CurrentWeather').length).toEqual(0);
     expect(wrapper.find('SevenHourForecast').length).toEqual(0);
     expect(wrapper.find('TenDayForecast').length).toEqual(0);
   });
 
-  // Rendering - If there is a location set in state
-  it('Should not render the Welcome component if there is a location that returned API data', () => {
-    wrapper.setState({ city: 'Denver, CO' });
+  it('should not render the Welcome component if there is a valid location, cleaned API data, and there is no error', () => {
     wrapper.setState({ cleanApiData: true });
+    wrapper.setState({ city: 'Denver, CO' });
+    wrapper.setState({ error: false });
 
     expect(wrapper.find('Welcome').length).toEqual(0);
   });
 
-  it('Should render the Search component if there is a location that returned API data', () => {
-    wrapper.setState({ city: 'Denver, CO' });
+  it('should render the Search, CurrentWeather, SevenHourForecast, and TenDayForecast components if there is a valid location, cleaned API data, and there is no error', () => {
     wrapper.setState({ cleanApiData: true });
+    wrapper.setState({ city: 'Denver, CO' });
+    wrapper.setState({ error: false });
 
     expect(wrapper.find('Search').length).toEqual(1);
-  });
-
-  it('Should render the CurrentWeather, SevenHourForecast, and TenDayForecast components if there is a location that returned API data', () => {
-    wrapper.setState({ city: 'Denver, CO' });
-    wrapper.setState({ cleanApiData: true });
-
-    expect(wrapper.find('CurrentWeather').length).toEqual(1);
-    expect(wrapper.find('SevenHourForecast').length).toEqual(1);
-    expect(wrapper.find('TenDayForecast').length).toEqual(1);
-  });
-
-  it('Should render the CurrentWeather, SevenHourForecast, and TenDayForecast components if there is a location that returned API data', () => {
-    wrapper.setState({ city: 'Denver, CO' });
-    wrapper.setState({ cleanApiData: true });
-
     expect(wrapper.find('CurrentWeather').length).toEqual(1);
     expect(wrapper.find('SevenHourForecast').length).toEqual(1);
     expect(wrapper.find('TenDayForecast').length).toEqual(1);
