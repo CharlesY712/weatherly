@@ -18,7 +18,7 @@ describe('App', () => {
     expect(wrapper.state()).toEqual(
       {
         cleanApiData: null,
-        city: localStorage.location,
+        location: localStorage.location,
         error: false
       });
   });
@@ -45,21 +45,21 @@ describe('App', () => {
   });
 
   it('should render the Welcome component if there is no location and no error', () => {
-    wrapper.setState({ city: localStorage.location });
+    wrapper.setState({ location: localStorage.location });
     wrapper.setState({ error: false });
 
     expect(wrapper.find('Welcome').length).toEqual(1);
   });
 
   it('should render the Search component if there is no location and no error', () => {
-    wrapper.setState({ city: localStorage.location });
+    wrapper.setState({ location: localStorage.location });
     wrapper.setState({ error: false });
 
     expect(wrapper.find('Search').length).toEqual(1);
   });
 
   it('should not render the CurrentWeather, SevenHourForecast, and TenDayForecast components if there is no location and no error', () => {
-    wrapper.setState({ city: localStorage.location });
+    wrapper.setState({ location: localStorage.location });
     wrapper.setState({ error: false });
 
     expect(wrapper.find('CurrentWeather').length).toEqual(0);
@@ -69,7 +69,7 @@ describe('App', () => {
 
   it('should not render the Welcome component if there is a valid location, cleaned API data, and there is no error', () => {
     wrapper.setState({ cleanApiData: true });
-    wrapper.setState({ city: 'Denver, CO' });
+    wrapper.setState({ location: 'Denver, CO' });
     wrapper.setState({ error: false });
 
     expect(wrapper.find('Welcome').length).toEqual(0);
@@ -77,7 +77,7 @@ describe('App', () => {
 
   it('should render the Search, CurrentWeather, SevenHourForecast, and TenDayForecast components if there is a valid location, cleaned API data, and there is no error', () => {
     wrapper.setState({ cleanApiData: true });
-    wrapper.setState({ city: 'Denver, CO' });
+    wrapper.setState({ location: 'Denver, CO' });
     wrapper.setState({ error: false });
 
     expect(wrapper.find('Search').length).toEqual(1);
@@ -85,4 +85,6 @@ describe('App', () => {
     expect(wrapper.find('SevenHourForecast').length).toEqual(1);
     expect(wrapper.find('TenDayForecast').length).toEqual(1);
   });
+
+
 });
