@@ -15,12 +15,7 @@ describe('App', () => {
   });
 
   it('should have default states of null for cleanApiData, location, error', () => {
-    expect(wrapper.state()).toEqual(
-      {
-        cleanApiData: null,
-        location: localStorage.location,
-        error: false
-      });
+    expect(wrapper.state()).toEqual({ cleanApiData: null, location: localStorage.location, error: false });
   });
 
   it('should render the Search component if there is an error', () => {
@@ -86,5 +81,17 @@ describe('App', () => {
     expect(wrapper.find('TenDayForecast').length).toEqual(1);
   });
 
+  it('should update the state.cleanApiData, state.location, and state.error when a user clicks the submit button', () => {
+    const mountedWrapper = mount(<App />);
+    mountedWrapper.instance().getWeatherData = jest.fn();
+    mountedWrapper.find('.search-bar').simulate('change', { target: { value: 'Denver, CO' } });
+    mountedWrapper.find('.search-button').simulate('click');
 
+    wrapper.setState({ cleanApiData: true });
+    wrapper.setState({ location: 'Denver, CO' });
+    wrapper.setState({ error: false });
+
+    expect(mountedWrapper.instance().getWeatherData).toHaveBeenCalledTimes(1);
+    expect(wrapper.state()).toEqual({ cleanApiData: true, location: 'Denver, CO', error: false });
+  });
 });

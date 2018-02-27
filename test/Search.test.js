@@ -65,6 +65,7 @@ describe('Search', () => {
     wrapper = mount(<Search setLocation={props.setLocation} />);
     wrapper.setState({ userInput: 'Denver, CO' });
     wrapper.find('.search-button').simulate('click');
+
     expect(wrapper.state().userInput).toEqual('');
   });
 });
