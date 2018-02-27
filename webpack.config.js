@@ -9,6 +9,16 @@ module.exports = {
     filename: '[name].bundle.js',
   },
   module: {
+    rules: [{
+        test: /\.scss$/,
+          use: [{
+            loader: "style-loader"
+          }, {
+            loader: "css-loader" 
+          }, {
+            loader: "sass-loader"
+          }]
+    }],
     loaders: [
       {
         test: /\.jsx?$/,
