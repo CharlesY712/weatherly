@@ -14,11 +14,11 @@ describe('Hourly Card', () => {
     expect(wrapper).toBeDefined();
   });
 
-  it('should render a img tag with a src', () => {
+  it('should render an img tag with a src', () => {
     expect(wrapper.find('img').prop('src')).toEqual('img.png');
   });
 
-  it('should render an p tag with class of "hour" showing the hour', () => {
+  it('should render a p tag with class of "hour" showing the hour', () => {
     expect(wrapper.find('.hour').text()).toEqual('8:00');
   });
 
@@ -39,11 +39,11 @@ describe('Ten day Card', () => {
     expect(wrapper).toBeDefined();
   });
 
-   it('should render a img tag with a src', () => {
+   it('should render an img tag with a src', () => {
     expect(wrapper.find('img').prop('src')).toEqual('img.png');
   });
 
-  it('should render p tag with class "day" showing the day', () => {
+  it('should render a p tag with class "day" showing the day', () => {
     expect(wrapper.find('.day').text()).toEqual('Tuesday');
   });
 
