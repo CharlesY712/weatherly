@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow, mount } from 'enzyme';
 import Welcome from '../lib/Welcome.js';
 
-describe.skip('Welcome', () => {
+describe('Welcome', () => {
   let wrapper;
 
   beforeEach(() => {
@@ -13,16 +13,7 @@ describe.skip('Welcome', () => {
     expect(wrapper).toBeDefined();
   });
 
-  it('should have a wrapper with a class of welcome', () => {
-    expect(wrapper.find('div').hasClass('welcome')).toEqual(true);
-  });
-
   it('should render an h1 tag with a welcome title', () => {
-    expect(wrapper.find('h1').text()).toEqual('Welcome to Weathrly');
+    expect(wrapper.find('h1').text()).toEqual('Welcome to Weatherly');
   });
-
-  it('should update suggestions array based on userInput state', () => {
-    expect(wrapper.find('h1').text()).toEqual('Welcome to Weathrly');
-  });
-
 });
