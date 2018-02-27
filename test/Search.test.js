@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow, mount } from 'enzyme';
 import Search from '../lib/Search.js';
 
-describe.skip('Search', () => {
+describe('Search', () => {
   let wrapper;
 
   let props = {
@@ -14,12 +14,7 @@ describe.skip('Search', () => {
   });
 
   it('should exist', () => {
-    // console.log(wrapper.debug());
     expect(wrapper).toBeDefined();
-  });
-
-  it('should have a wrapper with a class of search', () => {
-    expect(wrapper.find('.search').length).toEqual(1);
   });
 
   it('should render an input element with a class of search-bar', () => {
@@ -28,6 +23,10 @@ describe.skip('Search', () => {
 
   it('should render a datalist element with an ID of suggestions', () => {
     expect(wrapper.find('#suggestions').length).toEqual(1);
+  });
+
+  it('should render an input element with a class of search-button', () => {
+    expect(wrapper.find('.search-button').length).toEqual(1);
   });
 
   it('should have a default state of userInput equal to an empty string', () => {
@@ -68,5 +67,4 @@ describe.skip('Search', () => {
     wrapper.find('.search-button').simulate('click');
     expect(wrapper.state().userInput).toEqual('');
   });
-
 });

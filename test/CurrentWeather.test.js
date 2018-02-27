@@ -19,7 +19,7 @@ const cleanApiData = {
   }
 };
 
-describe.only('CurrentWeather', () => {
+describe('CurrentWeather', () => {
   let wrapper;
 
   beforeEach(() => {
@@ -31,31 +31,31 @@ describe.only('CurrentWeather', () => {
     expect(wrapper).toBeDefined();
   });
 
-  it('should have an p element with a class of location show the current location', () => {
+  it('should render a p element with a class of location show the current location', () => {
     expect(wrapper.find('.location').text()).toEqual('Denver, CO');
   });
 
-  it('should have an p element with a class of day-mon-date show the current day month and date', () => {
+  it('should render a p element with a class of day-mon-date show the current day month and date', () => {
     expect(wrapper.find('.day-mon-date').text()).toEqual('MondayJuly26');
   });
 
-  it('should have an p element with a class of condition show the current condition', () => {
+  it('should render a p element with a class of condition show the current condition', () => {
     expect(wrapper.find('.condition').text()).toEqual('Sunny');
   });
 
-  it('should have an p element with a class of current show the current temp', () => {
+  it('should render a p element with a class of current show the current temp', () => {
     expect(wrapper.find('.current').text()).toEqual('Current:60');
   });
 
-  it('should have an p element with a class of high-temp show the high temp', () => {
+  it('should render a p element with a class of high-temp show the high temp', () => {
     expect(wrapper.find('.high-temp').text()).toEqual('High:70 F (70 C)');
   });
 
-  it('should have an p element with a class of low-temp show the low temp', () => {
+  it('should render a p element with a class of low-temp show the low temp', () => {
     expect(wrapper.find('.low-temp').text()).toEqual('Low:50 F (50 C)');
   });
 
-  it('should have an p element with a class of summary show the weather summary', () => {
+  it('should render a p element with a class of summary show the weather summary', () => {
     expect(wrapper.find('.summary').text()).toEqual('Plentiful sunshine. High 70.');
   });
 })
