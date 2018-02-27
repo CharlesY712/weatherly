@@ -18,12 +18,12 @@ describe('Hourly Card', () => {
     expect(wrapper.find('img').prop('src')).toEqual('img.png');
   });
 
-  it('should render an h3 tag with the hour', () => {
-    expect(wrapper.find('h3').text()).toEqual('8:00');
+  it('should render an p tag with class of "hour" showing the hour', () => {
+    expect(wrapper.find('.hour').text()).toEqual('8:00');
   });
 
-  it('should render a h4 tag with the temp', () => {
-    expect(wrapper.find('h4').text()).toEqual('33');
+  it('should render a p tag with class "temp" showing the temp', () => {
+    expect(wrapper.find('.temp').text()).toEqual('33˚ F');
   });
 });
 
@@ -43,15 +43,15 @@ describe('Ten day Card', () => {
     expect(wrapper.find('img').prop('src')).toEqual('img.png');
   });
 
-  it('should render an h3 tag with the day', () => {
-    expect(wrapper.find('h3').text()).toEqual('Tuesday');
+  it('should render p tag with class "day" showing the day', () => {
+    expect(wrapper.find('.day').text()).toEqual('Tuesday');
   });
 
-   it('should render a h4 tag with the high', () => {
-    expect(wrapper.find('h4').text()).toEqual('High: 75');
+   it('should render a p tag with class "high" showing the high', () => {
+    expect(wrapper.find('.high').text()).toEqual('High: 75˚ F');
   });
 
-   it('should render a h5 tag with the low', () => {
-    expect(wrapper.find('h5').text()).toEqual('Low: 35');
+   it('should render a p tag with class "low" showing the low', () => {
+    expect(wrapper.find('.low').text()).toEqual('Low: 35˚ F');
   });
 });
