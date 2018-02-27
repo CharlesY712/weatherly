@@ -44,7 +44,7 @@ describe('App', () => {
     expect(wrapper.find('TenDayForecast').length).toEqual(1);
   });
 
-  it.only('should render the Welcome component if there is no location and no error', () => {
+  it('should render the Welcome component if there is no location and no error', () => {
     wrapper.setState({ city: localStorage.location });
     wrapper.setState({ error: false });
 
