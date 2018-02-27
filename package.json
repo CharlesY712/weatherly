@@ -67,10 +67,7 @@
     "webpack-dev-server": "^1.14.1"
   },
   "dependencies": {
-<<<<<<< HEAD
-    "node-sass-chokidar": "0.0.3"
-=======
+    "node-sass-chokidar": "0.0.3",
     "@charlesy712/complete-me": "git+https://github.com/CharlesY712/complete-me.git"
->>>>>>> acc61e2ee0fa9a23a656dd8d4fd544665ec9defb
   }
 }
