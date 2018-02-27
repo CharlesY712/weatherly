@@ -7,12 +7,10 @@ describe('Hourly Card', () => {
 
   beforeEach(() => {
     localStorage.clear();
-    wrapper = shallow(<Card key={0} hour={'8:00'} icon={'img.png'} tempF={'33'}/>);
+    wrapper = shallow(<Card key={1} icon={'img.png'} hour={'8:00'} tempF={'33'}/>);
   });
 
-
   it('should exist', () => {
-    console.log(wrapper.debug());
     expect(wrapper).toBeDefined();
   });
 
@@ -20,44 +18,40 @@ describe('Hourly Card', () => {
     expect(wrapper.find('img').prop('src')).toEqual('img.png');
   });
 
-  it('should render an p tag with the hour', () => {
-    expect(wrapper.find('span').text()).toEqual('8:00');
+  it('should render an h3 tag with the hour', () => {
+    expect(wrapper.find('h3').text()).toEqual('8:00');
   });
 
-  it('should render a p tag with the temp', () => {
-    expect(wrapper.find('p').text()).toEqual('33');
+  it('should render a h4 tag with the temp', () => {
+    expect(wrapper.find('h4').text()).toEqual('33');
   });
 });
 
-describe.only('Ten day Card', () => {
+describe('Ten day Card', () => {
   let wrapper;
 
   beforeEach(() => {
     localStorage.clear();
-    wrapper = shallow(<Card key={1} day={'Tuesday'} icon={'img.png'} high={'75'} low={'35'}/>);
+    wrapper = shallow(<Card key={1} icon={'img.png'} day={'Tuesday'} high={'75'} low={'35'}/>);
   });
 
   it('should exist', () => {
     expect(wrapper).toBeDefined();
   });
 
-  it('should have a wrapper with a class of card', () => {
-    expect(wrapper.find('div').hasClass('card')).toEqual(true);
-  });
-
-  it('should render an h1 tag with the time', () => {
-    expect(wrapper.find('h1').text()).toEqual('Tuesday');
-  });
-
    it('should render a img tag with a src', () => {
     expect(wrapper.find('img').prop('src')).toEqual('img.png');
   });
 
-   it('should render a p tag with the high', () => {
-    expect(wrapper.find('p').text()).toEqual('75');
+  it('should render an h3 tag with the day', () => {
+    expect(wrapper.find('h3').text()).toEqual('Tuesday');
   });
 
-   it('should render a span tag with the low', () => {
-    expect(wrapper.find('span').text()).toEqual('35');
+   it('should render a h4 tag with the high', () => {
+    expect(wrapper.find('h4').text()).toEqual('High: 75');
+  });
+
+   it('should render a h5 tag with the low', () => {
+    expect(wrapper.find('h5').text()).toEqual('Low: 35');
   });
 });
