@@ -6,7 +6,7 @@ html {
   font-family: sans-serif;
   height: 100%;
   /*width: 1200px;*/
-  background: url('../images/background .jpg');
+  background: url('../images/background.jpg');
   background-attachment: fixed;
   background-size: cover;
 }
