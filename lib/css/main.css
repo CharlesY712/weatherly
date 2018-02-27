@@ -1,1 +1,15 @@
-.greeting { padding-bottom: 20px; border-bottom: 1px solid #ccc; }
+body,
+html {
+  background-color: #7DEBFC;
+  /*display: inline-flex;*/
+  flex-direction: row;
+  font-family: sans-serif;
+  height: 100%;
+  /*width: 1200px;*/
+  /*background: url('../images/snowy-night.jpg');*/
+}
+
+#app {
+  width: 700px;
+  display: flex;
+}

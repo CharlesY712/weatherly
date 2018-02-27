@@ -1,0 +1,6 @@
+.Welcome {
+  display: flex;
+  align-content: flex-end;
+  color: green;
+  font-size: 40px;
+  z-index: 1; }
