@@ -1,0 +1,11 @@
+.current {
+  text-align: left;
+  background-color: white;
+  padding: 14px; }
+
+.place {
+  font-size: 72px; }
+
+h1 {
+  display: block;
+  position: absolute; }

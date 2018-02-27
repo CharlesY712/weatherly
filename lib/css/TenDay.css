@@ -1,0 +1,14 @@
+.TenDayForeCast {
+  display: inline-flex;
+  margin-top: 20px;
+  height: 300px;
+  width: 100%;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+  box-sizing: border-box;
+  width: 50em;
+  margin-left: 14em; }
+
+.TenDay {
+  margin-bottom: 10px; }
